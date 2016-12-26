@@ -1,1 +1,11 @@
 demo-java/build/
+demo-shiro/build/
+demo-patterns/build/
+demo-netty/build/
+.idea/
+demo-template/build/
+*.iml
+out/
+catalina.base_IS_UNDEFINED/
+build/
+.gradle/

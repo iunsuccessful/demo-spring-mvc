@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="iunsuccessful.demo.shiro.dao.ResourceDao" >
+  <resultMap id="BaseResultMap" type="iunsuccessful.demo.shiro.entity.Resource" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="parent_ids" property="parentIds" jdbcType="VARCHAR" />
+    <result column="permission" property="permission" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, url, parent_id, parent_ids, permission
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from yh_resource
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from yh_resource
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="iunsuccessful.demo.shiro.entity.Resource" >
+    insert into yh_resource (id, name, url, 
+      parent_id, parent_ids, permission
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{parentId,jdbcType=BIGINT}, #{parentIds,jdbcType=VARCHAR}, #{permission,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="iunsuccessful.demo.shiro.entity.Resource" >
+    insert into yh_resource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="parentIds != null" >
+        parent_ids,
+      </if>
+      <if test="permission != null" >
+        permission,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="parentIds != null" >
+        #{parentIds,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null" >
+        #{permission,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="iunsuccessful.demo.shiro.entity.Resource" >
+    update yh_resource
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="parentIds != null" >
+        parent_ids = #{parentIds,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null" >
+        permission = #{permission,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="iunsuccessful.demo.shiro.entity.Resource" >
+    update yh_resource
+    set name = #{name,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      parent_ids = #{parentIds,jdbcType=VARCHAR},
+      permission = #{permission,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByIds" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from yh_resource
+    where id in
+    <foreach collection="ids" item="id" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </select>
+
+</mapper>

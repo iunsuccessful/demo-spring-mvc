@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+<!-- 	<timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss" /> -->
+
+	<property name="USER_HOME" value="${catalina.base}"></property>
+	<appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${USER_HOME}/logs/info.%d.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss} [%thread] [%logger{10}:%line] %msg%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch> 
+      		<onMismatch>DENY</onMismatch> 
+		</filter>
+	</appender>
+	
+	<logger name="org.gradle" level="INFO" additivity="true">
+	   <appender-ref ref="INFO" />
+	</logger>
+	
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
+

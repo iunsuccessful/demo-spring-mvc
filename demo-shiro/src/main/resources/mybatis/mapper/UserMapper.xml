@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="iunsuccessful.demo.shiro.dao.UserDao" >
+  <resultMap id="BaseResultMap" type="iunsuccessful.demo.shiro.entity.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="role_ids" property="roleIds" jdbcType="VARCHAR" />
+    <result column="locked" property="locked" jdbcType="SMALLINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, password, salt, role_ids, locked
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from yh_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from yh_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="iunsuccessful.demo.shiro.entity.User" >
+    insert into yh_user (id, username, password, 
+      salt, role_ids, locked
+      )
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{salt,jdbcType=VARCHAR}, #{roleIds,jdbcType=VARCHAR}, #{locked,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="iunsuccessful.demo.shiro.entity.User" >
+    insert into yh_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="roleIds != null" >
+        role_ids,
+      </if>
+      <if test="locked != null" >
+        locked,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="roleIds != null" >
+        #{roleIds,jdbcType=VARCHAR},
+      </if>
+      <if test="locked != null" >
+        #{locked,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="iunsuccessful.demo.shiro.entity.User" >
+    update yh_user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="roleIds != null" >
+        role_ids = #{roleIds,jdbcType=VARCHAR},
+      </if>
+      <if test="locked != null" >
+        locked = #{locked,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="iunsuccessful.demo.shiro.entity.User" >
+    update yh_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      role_ids = #{roleIds,jdbcType=VARCHAR},
+      locked = #{locked,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByUsername" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from yh_user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

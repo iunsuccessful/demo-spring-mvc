@@ -1,0 +1,8 @@
+rootProject.name = 'demo-spring-mvc'
+
+include 'demo-template'
+include 'demo-shiro'
+include 'demo-netty'
+include 'demo-java'
+include 'demo-patterns'
+
