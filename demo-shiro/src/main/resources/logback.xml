@@ -8,7 +8,7 @@
 
 <!-- 	<timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss" /> -->
 
-	<property name="USER_HOME" value="${catalina.base}"></property>
+	<property name="USER_HOME" value="${catalina.base}"/>
 	<appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>${USER_HOME}/logs/info.%d.%i.log</fileNamePattern>
