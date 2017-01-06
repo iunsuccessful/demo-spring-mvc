@@ -46,4 +46,9 @@ public class PrintUtils {
         System.out.println(formatterTime);
     }
 
+    public static void print(Object o) {
+        System.out.println("---------- object -------------");
+        System.out.println(o);
+    }
+
 }
