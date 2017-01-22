@@ -6,9 +6,10 @@
 
 <!-- 属性描述 scan：性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true scanPeriod:设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
     debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 -->
-<configuration scan="true" scanPeriod="60 seconds" debug="false">
+<configuration scan="true" scanPeriod="60 seconds" debug="true">
 
-    <property name="logs.basedir" value="${catalina.base}"/>
+    <property name="tomcat.dir" value="D:\\Program Files\\apache-tomcat-8.0.32\\logs"/>
+    <property name="logs.basedir" value="${catalina.base:-${tomcat.dir}}"/>
     <property name="demo-java.env.namespace" value="demo-java"/>
     <property name="logs.maxFileSize" value="10MB"/>
     <property name="logs.maxHistory" value="7"/>
@@ -53,6 +54,8 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger:%line - %msg%n</pattern>
         </encoder>
     </appender>
+
+
 
     <!-- ConsoleAppender 控制台输出日志, 生产上不要 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
