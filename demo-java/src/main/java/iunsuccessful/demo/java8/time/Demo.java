@@ -3,6 +3,7 @@ package iunsuccessful.demo.java8.time;
 import iunsuccessful.demo.common.utils.PrintUtils;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author LiQZ on 2016/10/17.
@@ -41,6 +42,9 @@ public class Demo {
         // 判断会员生日 10-19
         MonthDay birthday = MonthDay.of(10, 19);
         System.out.println(MonthDay.from(LocalDate.now()).equals(birthday));
+
+//        LocalDateTime date = LocalDateTime.parse("2017-02-17 09:46:01");
+//        PrintUtils.print(date, "YYYY-MM-dd HH:mm:ss");
 
 
     }
