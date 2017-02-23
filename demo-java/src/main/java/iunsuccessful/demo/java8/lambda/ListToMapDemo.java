@@ -31,8 +31,13 @@ public class ListToMapDemo {
      */
     public static void main(String[] args) {
 
+        // 取元素 key, value
         Map<Integer, String> options = Lists.newArrayList(Module.values()).stream().collect(Collectors.toMap(Module::getKey, Module::getValue));
         options.entrySet().forEach(entry -> System.out.printf("key: %d value: %s", entry.getKey(), entry.getValue()));
+
+        // 取 id， key, Object
+        Map<Integer, Module> options2 = Lists.newArrayList(Module.values()).stream().collect(Collectors.toMap(Module::getKey, Function.identity()));
+        options2.entrySet().forEach(entry -> System.out.printf("key: %d value: %s", entry.getKey(), entry.getValue()));
 
     }
 
