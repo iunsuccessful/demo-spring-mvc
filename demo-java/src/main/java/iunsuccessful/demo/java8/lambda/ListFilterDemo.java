@@ -1,9 +1,11 @@
 package iunsuccessful.demo.java8.lambda;
 
+import com.google.common.collect.Maps;
 import iunsuccessful.demo.common.utils.PrintUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -22,6 +24,7 @@ public class ListFilterDemo {
         list.add("123");
         list = list.stream().filter(bean -> !"1".equals(bean)).collect(Collectors.toList());
         PrintUtils.print(list);
+
     }
 
 }
