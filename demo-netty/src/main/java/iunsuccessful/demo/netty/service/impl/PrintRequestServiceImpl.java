@@ -46,7 +46,7 @@ public class PrintRequestServiceImpl {
     }
 
     public void start() throws Exception {
-        final EchoServerHandler serverHandler = new EchoServerHandler();
+        final PrintRequestServiceHandler serverHandler = new PrintRequestServiceHandler();
         EventLoopGroup group = new NioEventLoopGroup();
         try {
             // NIO服务的辅助启动类
