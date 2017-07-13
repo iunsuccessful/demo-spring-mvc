@@ -2,10 +2,7 @@ package iunsuccessful.demo.java8.lambda;
 
 import com.google.common.collect.Lists;
 
-import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -30,10 +27,8 @@ public class ListToMapDemo {
      * @param args
      */
     public static void main(String[] args) {
-
         Map<Integer, String> options = Lists.newArrayList(Module.values()).stream().collect(Collectors.toMap(Module::getKey, Module::getValue));
         options.entrySet().forEach(entry -> System.out.printf("key: %d value: %s", entry.getKey(), entry.getValue()));
-
     }
 
     enum Module {

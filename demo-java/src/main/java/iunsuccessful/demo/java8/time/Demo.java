@@ -42,6 +42,9 @@ public class Demo {
         MonthDay birthday = MonthDay.of(10, 19);
         System.out.println(MonthDay.from(LocalDate.now()).equals(birthday));
 
+        // 获取时间秒(保存数据库用)
+        System.out.println(Instant.now().getEpochSecond());
+
 
     }
 
