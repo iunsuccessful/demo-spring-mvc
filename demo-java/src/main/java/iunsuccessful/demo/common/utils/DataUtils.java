@@ -1,6 +1,8 @@
 package iunsuccessful.demo.common.utils;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -17,6 +19,16 @@ public class DataUtils {
             sb.append(base.charAt(number));
         }
         return sb.toString();
+    }
+
+    public static List<String> getRandomList(int length) {
+        Random random = new Random();
+        List<String> list = new ArrayList<>(length);
+        for (int i = 0; i < length; i++ ) {
+            int number = random.nextInt(10) + 1;
+            list.add(getRandomString(number));
+        }
+        return list;
     }
 
     public static void main(String[] args) {

@@ -3,6 +3,7 @@ package iunsuccessful.demo.base.atomic;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
+ * 原子操作
  * Created by LiQZ on 2017/6/8.
  */
 public class AtomicBooleanDemo {
