@@ -4,11 +4,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
 /**
  * @author LiQZ on 2016/4/11.
  */
 public class DataUtils {
+
+    class RandomStringSupplier implements Supplier<String> {
+        @Override
+        public String get() {
+
+            return null;
+        }
+    }
 
     public static String getRandomString(int length) {
         String base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

@@ -6,8 +6,10 @@ import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 /**
  * @author LiQZ on 2016/4/29.
@@ -16,7 +18,17 @@ public class PrintUtils {
 
     public static <T> void print(List<T> list) {
         System.out.println("------------- list ------------");
-        list.stream().forEach(System.out::println);
+        list.forEach(System.out::println);
+    }
+
+    public static <T> void print(Collection<T> collections) {
+        System.out.println("------------- collections ------------");
+        collections.forEach(PrintUtils::print);
+    }
+
+    public static <T> void print(Object obj) {
+        System.out.println("------------- Object ------------");
+        System.out.println(obj);
     }
 
     public static void print(String[] strings) {

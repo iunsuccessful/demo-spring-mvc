@@ -8,12 +8,6 @@ import java.util.function.Function;
  */
 public class FactorialDemo {
 
-    Function<Integer, Integer> factorial = null;
-
-    public FactorialDemo() {
-        factorial = i -> { return i == 0 ? 1 : i * factorial.apply( i - 1 ); };
-    }
-
     public static void main(String[] args) {
         method1(10);
         method2(10);
@@ -36,8 +30,21 @@ public class FactorialDemo {
         // 错误示范
 //        Function<Integer, Integer> factorial = i -> { return i == 0 ? 1 : i * factorial.apply( i - 1 ); };
         // 正确用法
-        System.out.println(new FactorialDemo().factorial.apply(i));
+        System.out.println(new Factorial().factorial.apply(i));
 
     }
 
+}
+
+class Factorial {
+
+    Function<Integer, Integer> factorial = null;
+
+    public Factorial() {
+        factorial = i -> i == 0 ? 1 : i * factorial.apply( i - 1 );
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Factorial().factorial.apply(10));
+    }
 }
