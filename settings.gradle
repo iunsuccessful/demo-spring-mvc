@@ -5,4 +5,5 @@ include 'demo-shiro'
 include 'demo-netty'
 include 'demo-java'
 include 'demo-patterns'
+include 'demo-interview'
 
