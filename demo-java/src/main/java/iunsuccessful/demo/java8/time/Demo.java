@@ -3,6 +3,8 @@ package iunsuccessful.demo.java8.time;
 import iunsuccessful.demo.common.utils.PrintUtils;
 
 import java.time.*;
+import java.time.temporal.IsoFields;
+import java.time.temporal.TemporalField;
 
 /**
  * @author LiQZ on 2016/10/17.
@@ -44,6 +46,10 @@ public class Demo {
 
         // 获取时间秒(保存数据库用)
         System.out.println(Instant.now().getEpochSecond());
+
+        // 获取当前日期(不包括时间)
+        LocalDate today = LocalDate.now(); // 2017-10-27
+        System.out.println(today);
 
 
     }
