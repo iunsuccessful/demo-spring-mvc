@@ -5,6 +5,7 @@ import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
 /**
+ * 斐波那契数列
  * Created by LiQZ on 2016/12/5.
  */
 public class Demo {
