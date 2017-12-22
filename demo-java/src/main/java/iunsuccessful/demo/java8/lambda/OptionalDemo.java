@@ -22,7 +22,7 @@ public class OptionalDemo {
         Person person = new Person();
         System.out.println(Optional.ofNullable(person)
                 .map(x->x.country)
-                .map(x->x.provinec)
+                .map(x->x.province)
                 .map(x->x.city)
                 .map(x->x.name)
                 .orElse("unkonwn"));
@@ -32,7 +32,7 @@ public class OptionalDemo {
         Country country;
     }
     class Country {
-        Province provinec;
+        Province province;
     }
     class Province {
         City city;
@@ -43,7 +43,7 @@ public class OptionalDemo {
 
     private static void checkNotNull2() {
         Person2 person = new Person2();
-        System.out.println(person.country.flatMap(x -> x.provinec)
+        System.out.println(person.country.flatMap(x -> x.province)
                 .flatMap(x -> x.city)
                 .flatMap(x -> x.name)
                 .orElse("unknown"));
@@ -53,7 +53,7 @@ public class OptionalDemo {
         Optional<Country2> country = Optional.empty();
     }
     class Country2 {
-        Optional<Province2> provinec;
+        Optional<Province2> province;
     }
     class Province2 {
         Optional<City2> city;
