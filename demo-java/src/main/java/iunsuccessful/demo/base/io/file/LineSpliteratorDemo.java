@@ -21,7 +21,7 @@ public class LineSpliteratorDemo {
 
     public static void main(String[] args) {
 
-        Path start = new File("D:\\a\\com\\azt\\api\\pojo\\StdCategoryPriceConfig.java").toPath();
+        Path start = new File("D:\\Tools\\XX-Net\\code\\default\\download.md").toPath();
 
         System.out.println(start.toAbsolutePath());
 
@@ -62,7 +62,7 @@ class LineSpliterator implements Spliterator<DispLine> {
     @Override
     public boolean tryAdvance(Consumer<? super DispLine> action) {
         String name = Thread.currentThread().getName();
-        System.out.println(action);
+//        System.out.printf("%s -------- lo: %d hi: %d\n", name, lo, hi);
         if (lo >= hi) {
             System.out.printf("%s ########### lo: %d hi: %d\n", name, lo, hi);
             return false;
@@ -81,6 +81,20 @@ class LineSpliterator implements Spliterator<DispLine> {
         return lo < hi;
     }
 
+    /**
+     * CountedCompleter#tryComplete
+     * ForEachOps#onCompletion
+     * AbstractPipeline#wrapAndCopyInto
+     * AbstractPipeline#copyInto
+     * @param action
+     */
+    @Override
+    public void forEachRemaining(Consumer<? super DispLine> action) {
+//        System.out.printf("forEachRemaining lo: %d hi: %d name: %s\n", lo, hi, Thread.currentThread().getName());
+        System.out.printf("forEachRemaining lo: %d hi: %d\n", lo, hi);
+        do { } while (tryAdvance(action));
+    }
+
     @Override
     public Spliterator<DispLine> trySplit() {
         int mid = (lo + hi) >>> 1; // 除以 2, 取中间的意思
@@ -90,8 +104,9 @@ class LineSpliterator implements Spliterator<DispLine> {
         LineSpliterator newLineSpliterator = null;
         // 如果不是最后一行，就继续找中间行
         if (mid != hi) {
-            // 断续分解前半段
-            System.out.printf("mid: %d hi: %d\n", mid, hi);
+            // 继续分解前半段
+            System.out.println("trySplit###");
+            System.out.printf("lo: %d mid: %d hi: %d\n", lo, mid, hi);
             newLineSpliterator = new LineSpliterator(bb, lo, mid);
             lo = mid + 1;
         }
