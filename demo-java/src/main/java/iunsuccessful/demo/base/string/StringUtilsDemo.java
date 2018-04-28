@@ -24,6 +24,8 @@ public class StringUtilsDemo {
         System.out.println((int)' ');
         System.out.println((char) 65);
         System.out.println((char) 97);
+        System.out.println((int)' ');
+        System.out.println((int)' ');
 
     }
 

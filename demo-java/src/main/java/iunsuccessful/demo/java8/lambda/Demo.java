@@ -25,6 +25,7 @@ public class Demo {
 
 }
 
+// 元组
 class Tuple<T, U> {
     public final T _1;
     public final U _2;

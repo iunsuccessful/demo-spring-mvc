@@ -1,7 +1,5 @@
 package iunsuccessful.demo.base.generic.demo1;
 
-import jdk.nashorn.internal.objects.NativeUint8Array;
-
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 

@@ -13,7 +13,6 @@ public class ComparatorDemo {
 
     private static ServiceLoader<Comparator> serviceLoader = ServiceLoader.load(Comparator.class);
 
-
     public static void main(String[] args) {
         List<String> items = new ArrayList<String>() {
             {
@@ -27,13 +26,13 @@ public class ComparatorDemo {
 
         PrintUtils.print(items);
 
-        Collections.sort(items, getCompartor());
+        Collections.sort(items, getComparator());
 
         PrintUtils.print(items);
 
     }
 
-    private static Comparator getCompartor() {
+    private static Comparator getComparator() {
         if (serviceLoader.iterator().hasNext()) {
             return serviceLoader.iterator().next();
         }
