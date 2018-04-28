@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 
 /**
  * reduce: 压缩
+ * stream 流是一个集合，跟 array,list 差不多
  * @author LiQZ on 2016/9/7.
  */
 public class StreamReduce {

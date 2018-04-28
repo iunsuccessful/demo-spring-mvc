@@ -1,7 +1,7 @@
 package iunsuccessful.demo.java8.lambda;
 
 /**
- * 这个如何理解啊~~
+ * 使用表达式实例化函数接口
  * @author LiQZ on 2016/5/9.
  */
 public class OnclickListenerDemo {
