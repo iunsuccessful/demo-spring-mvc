@@ -1,4 +1,4 @@
-package iunsuccessful.demo.java8.lambda;
+package iunsuccessful.demo.java8.lambda.transforming_stream;
 
 import java.util.Arrays;
 import java.util.List;

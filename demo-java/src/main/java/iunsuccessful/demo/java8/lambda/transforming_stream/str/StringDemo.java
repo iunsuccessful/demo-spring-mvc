@@ -1,4 +1,4 @@
-package iunsuccessful.demo.java8.lambda.str;
+package iunsuccessful.demo.java8.lambda.transforming_stream.str;
 
 
 

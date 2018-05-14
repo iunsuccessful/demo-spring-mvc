@@ -20,6 +20,7 @@ public class Chooser {
 
     /**
      * 判断children长度是否为2的幂
+     * 惯用法
      */
     private static boolean isPowerOfTwo(int val) {
         return (val & -val) == val;

@@ -17,16 +17,15 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      */
     public static Set<Integer> splitIds(String ids) {
         if (isEmpty(ids)) {
-            Collections.emptyList();
+            return Collections.emptySet();
         }
         List<String> strIds = Splitter.on(",")
                 .trimResults()
                 .omitEmptyStrings()
                 .splitToList(ids);
         if (org.springframework.util.CollectionUtils.isEmpty(strIds)) {
-            Collections.emptyList();
+            return Collections.emptySet();
         }
-//        return strIds.stream().map(Integer::valueOf).collect(Collectors.toList());
         return strIds.stream().map(Integer::valueOf).collect(Collectors.toSet());
     }
 

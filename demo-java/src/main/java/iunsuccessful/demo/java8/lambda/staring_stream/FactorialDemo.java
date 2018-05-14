@@ -1,4 +1,4 @@
-package iunsuccessful.demo.java8.lambda;
+package iunsuccessful.demo.java8.lambda.staring_stream;
 
 import java.util.function.Function;
 

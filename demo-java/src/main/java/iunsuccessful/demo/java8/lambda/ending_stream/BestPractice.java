@@ -1,9 +1,14 @@
-package iunsuccessful.demo.java8.lambda;
+package iunsuccessful.demo.java8.lambda.ending_stream;
+
+import com.google.common.collect.Lists;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * @author LiQZ on 2016/9/7.
@@ -12,6 +17,7 @@ public class BestPractice {
 
     /**
      * Stream 转换在 Array
+     * 类似的 Stream 跟 List 之间的转换
      * http://www.programcreek.com/2014/01/convert-stream-to-array-in-java-8/
      */
     private static void streamToArray() {
@@ -20,6 +26,13 @@ public class BestPractice {
         String[] arr = stream.toArray(size -> new String[size]);
 //        String[] arr = stream.toArray(String[]::new);
         System.out.println(Arrays.toString(arr));
+
+        List<String> list = Lists.newArrayList("abc", "123");
+        // list.stream()
+        Stream.of(list).forEach(System.out::println);
+        Stream.of(list).collect(toList());
+
+
     }
 
     /**

@@ -1,4 +1,4 @@
-package iunsuccessful.demo.java8.lambda;
+package iunsuccessful.demo.java8.lambda.ending_stream;
 
 import com.google.common.collect.Lists;
 
