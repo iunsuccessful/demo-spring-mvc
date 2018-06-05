@@ -19,6 +19,7 @@ public class Demo {
                 .mapToObj(value -> value + 50).collect(Collectors.toList());
 
         PrintUtils.print(ss);
+        System.out.println(1 << 0);
     }
 
 }
