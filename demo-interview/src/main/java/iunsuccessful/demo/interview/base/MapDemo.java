@@ -13,8 +13,6 @@ public class MapDemo {
         Map map = new HashMap<>();
         map.put(null, null);
         System.out.println(map);
-
-
     }
 
 }
