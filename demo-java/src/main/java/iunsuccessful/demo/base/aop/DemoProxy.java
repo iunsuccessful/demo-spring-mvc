@@ -15,7 +15,10 @@ import java.lang.reflect.Proxy;
 public class DemoProxy {
 
     public static void main(String[] args){
-        jdkBase();
+        final IFoo f = new Foo();
+        DemoImplProxy dip = new DemoImplProxy(f);
+        ((IFoo) dip.getO()).sayHello();
+//        jdkBase();
 //        guavaBase();
 
     }
@@ -59,6 +62,28 @@ public class DemoProxy {
 
     }
 
+}
+
+class DemoImplProxy {
+
+    private Object obj;
+
+    public DemoImplProxy(final IFoo f) {
+        AbstractInvocationHandler invocationHandler = new AbstractInvocationHandler() {
+            @Override
+            protected Object handleInvocation(Object o, Method method, Object[] objects) throws Throwable {
+                System.out.println("begin...");
+                method.invoke(f, objects);
+                System.out.println("end.");
+                return null;
+            }
+        };
+        this.obj = Reflection.newProxy(IFoo.class, invocationHandler);
+    }
+
+    public Object getO() {
+        return obj;
+    }
 }
 
 interface IFoo {
