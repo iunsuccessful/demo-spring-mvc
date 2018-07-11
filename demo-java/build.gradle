@@ -6,4 +6,7 @@ dependencies {
 
     compile 'com.google.guava:guava:19.0'
     compile 'org.apache.commons:commons-lang3:3.1'
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
+    compile "org.springframework:spring-context:${springVersion}"
+
 }
