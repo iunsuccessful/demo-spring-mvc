@@ -21,6 +21,10 @@ public class MapDemo {
 
     public static void main(String[] args) {
         PrintUtils.print(properties);
+
+        Map<Integer, Integer> params = new HashMap<>();
+        System.out.println(params.getOrDefault(2, 0));
+
     }
 
 }

@@ -1,6 +1,7 @@
 package iunsuccessful.demo.common.utils;
 
 import com.google.common.collect.Multimap;
+import org.apache.commons.collections.Bag;
 
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
@@ -19,6 +20,11 @@ public class PrintUtils {
     public static <T> void print(List<T> list) {
         System.out.println("------------- list ------------");
         list.forEach(System.out::println);
+    }
+
+    public static void printBag(Bag bag) {
+        System.out.println("------------- bag ------------");
+        bag.uniqueSet().forEach(o -> System.out.printf("%s %s", o, bag.getCount(o)));
     }
 
     public static <T> void print(Collection<T> collections) {

@@ -1,7 +1,6 @@
-package iunsuccessful.demo.java8.lambda.staring_stream;
+package iunsuccessful.demo.java8.lambda.supplier;
 
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

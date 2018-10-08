@@ -1,4 +1,4 @@
-package iunsuccessful.demo.java8.lambda.staring_stream;
+package iunsuccessful.demo.java8.lambda.supplier;
 
 import java.util.function.Supplier;
 import java.util.stream.Stream;
