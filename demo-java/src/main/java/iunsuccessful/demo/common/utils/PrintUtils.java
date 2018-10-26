@@ -37,6 +37,17 @@ public class PrintUtils {
         System.out.println(obj);
     }
 
+    public static void print(int[] t) {
+        System.out.print("[");
+        for (int i = 0; i < t.length; i++) {
+            System.out.print(t[i]);
+            if (i < t.length - 1) {
+                System.out.print(" ,");
+            }
+        }
+        System.out.println("]");
+    }
+
     public static void print(String[] strings) {
         print(Arrays.asList(strings));
     }
