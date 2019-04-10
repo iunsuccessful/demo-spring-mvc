@@ -6,4 +6,5 @@ include 'demo-netty'
 include 'demo-java'
 include 'demo-patterns'
 include 'demo-interview'
+include 'demo-spring'
 

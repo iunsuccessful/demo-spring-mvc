@@ -2,6 +2,9 @@ package iunsuccessful.demo.base.aop;
 
 import com.google.common.reflect.AbstractInvocationHandler;
 import com.google.common.reflect.Reflection;
+import org.springframework.cglib.proxy.Enhancer;
+import org.springframework.cglib.proxy.MethodInterceptor;
+import org.springframework.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -15,8 +18,12 @@ import java.lang.reflect.Proxy;
 public class DemoProxy {
 
     public static void main(String[] args){
+//        final IFoo f = new Foo();
+//        DemoImplProxy dip = new DemoImplProxy(f);
+//        ((IFoo) dip.getO()).sayHello();
 //        jdkBase();
-        guavaBase();
+//        guavaBase();
+        cglibProxy();
 
     }
 
@@ -41,6 +48,9 @@ public class DemoProxy {
         foo.sayHello();
     }
 
+    /**
+     * guava 也需要有接口
+     */
     private static void cjlibBase() {
 
     }
@@ -67,6 +77,18 @@ public class DemoProxy {
 
     }
 
+    public static void cglibProxy() {
+        Enhancer enhancer = new Enhancer();
+        // 设置enhancer对象的父类
+        enhancer.setSuperclass(Foo.class);
+        // 设置enhancer的回调对象
+        enhancer.setCallback(new NoExceptionInterceptor());
+        // 创建代理对象
+        Foo proxy = (Foo)enhancer.create();
+
+        proxy.sayHello();
+    }
+
 }
 
 class DemoImplProxy {
@@ -90,6 +112,19 @@ class DemoImplProxy {
         return obj;
     }
 }
+
+class NoExceptionInterceptor implements MethodInterceptor {
+
+    @Override
+    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+        System.out.println("======插入前置通知======");
+        Object object = methodProxy.invokeSuper(o, objects);
+        System.out.println("======插入后者通知======");
+        return object;
+    }
+
+}
+
 
 interface IFoo {
 
