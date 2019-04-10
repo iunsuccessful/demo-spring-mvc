@@ -6,7 +6,7 @@ public class OptionalDemo {
 
     public static void main(String[] args) {
         checkNotNull();
-        checkNotNull2();
+//        checkNotNull2();
 //        exceptionTest();
     }
 
@@ -19,7 +19,8 @@ public class OptionalDemo {
      * </pre>
      */
     private static void checkNotNull() {
-        Person person = new Person();
+//        Person person = new Person();
+        Person person = null;
         System.out.println(Optional.ofNullable(person)
                 .map(x->x.country)
                 .map(x->x.province)

@@ -15,11 +15,8 @@ import java.lang.reflect.Proxy;
 public class DemoProxy {
 
     public static void main(String[] args){
-        final IFoo f = new Foo();
-        DemoImplProxy dip = new DemoImplProxy(f);
-        ((IFoo) dip.getO()).sayHello();
 //        jdkBase();
-//        guavaBase();
+        guavaBase();
 
     }
 
@@ -44,21 +41,29 @@ public class DemoProxy {
         foo.sayHello();
     }
 
+    private static void cjlibBase() {
+
+    }
+
     private static void guavaBase() {
         final IFoo f = new Foo();
-        AbstractInvocationHandler invocationHandler = new AbstractInvocationHandler() {
-            @Override
-            protected Object handleInvocation(Object o, Method method, Object[] objects) throws Throwable {
-                System.out.println("begin...");
-                method.invoke(f, objects);
-                System.out.println("end.");
-                return null;
-            }
-        };
+//        AbstractInvocationHandler invocationHandler = new AbstractInvocationHandler() {
+//            @Override
+//            protected Object handleInvocation(Object o, Method method, Object[] objects) throws Throwable {
+//                System.out.println("begin...");
+//                method.invoke(f, objects);
+//                System.out.println("end.");
+//                return null;
+//            }
+//        };
+//
+//        IFoo foo = Reflection.newProxy(IFoo.class, invocationHandler);
+//
+//        foo.sayHello();
 
-        IFoo foo = Reflection.newProxy(IFoo.class, invocationHandler);
-
-        foo.sayHello();
+        DemoImplProxy dip = new DemoImplProxy(f);
+        // 思考：为什么调用 sayHi 方法，没有被增强
+        ((IFoo) dip.getO()).sayHello();
 
     }
 
@@ -104,5 +109,6 @@ class Foo implements IFoo {
     @Override
     public void sayHello() {
         System.out.println("Hello!");
+        sayHi();
     }
 }

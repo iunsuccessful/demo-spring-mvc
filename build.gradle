@@ -1,16 +1,27 @@
 configure(allprojects) { project ->
 
     apply plugin: 'java'
+    apply plugin: 'idea'
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    idea {
+        module {
+            downloadJavadoc = false
+            downloadSources = false
+        }
+    }
+
+    sourceCompatibility = 1.10
+    targetCompatibility = 1.10
 
     group 'iunsuccessful.demo'
 
     version '1.0-SNAPSHOT'
 
     repositories {
+    }
+    repositories {
         mavenLocal()
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         mavenCentral()
     }
 
