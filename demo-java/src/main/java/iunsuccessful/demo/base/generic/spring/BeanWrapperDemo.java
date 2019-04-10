@@ -19,7 +19,7 @@ public class BeanWrapperDemo {
 
     }
 
-//    private static <T> T configListToBean(List<PlatformGetConfigDO> list, Class<T> clazz) {
+//    private static <T> T configListToBean(List<DynamicConfig> list, Class<T> clazz) {
 //
 //        // 没配置参数，就返回 null
 //        if (CollectionUtils.isEmpty(list)) {

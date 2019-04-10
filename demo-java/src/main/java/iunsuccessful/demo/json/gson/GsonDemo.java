@@ -33,11 +33,6 @@ public class GsonDemo {
 
         System.out.println(response2.getData().get(0).getName());
 
-
-
-
-
-
     }
 
 }
