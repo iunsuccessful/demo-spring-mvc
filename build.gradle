@@ -10,8 +10,8 @@ configure(allprojects) { project ->
         }
     }
 
-    sourceCompatibility = 1.10
-    targetCompatibility = 1.10
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
     group 'iunsuccessful.demo'
 

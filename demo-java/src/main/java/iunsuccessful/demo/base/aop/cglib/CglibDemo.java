@@ -6,13 +6,13 @@ import iunsuccessful.demo.base.aop.service.SayHelloServiceImpl;
 /**
  * Create By LiQZ 2019/1/9
  */
-public class CglibDemo {
-
-    public static void main(String[] args) {
-
-        CglibProxy proxy = new CglibProxy();
-        SayHelloService sayHelloService = (SayHelloService) proxy.getProxy(SayHelloServiceImpl.class);
-        sayHelloService.sayHello();
-    }
-
-}
+//public class CglibDemo {
+//
+//    public static void main(String[] args) {
+//
+//        CglibProxy proxy = new CglibProxy();
+//        SayHelloService sayHelloService = (SayHelloService) proxy.getProxy(SayHelloServiceImpl.class);
+//        sayHelloService.sayHello();
+//    }
+//
+//}
