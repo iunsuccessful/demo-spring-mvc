@@ -1,3 +1,11 @@
+// 引用这里版本，要用 "双引" 号
+ext {
+    guavaVersion = "19.0"
+    springVersion = "4.3.2.RELEASE"
+    jacksonVersion = "2.8.1"
+    commonsLang3Version = "3.9"
+}
+
 configure(allprojects) { project ->
 
     apply plugin: 'java'
@@ -18,8 +26,6 @@ configure(allprojects) { project ->
     version '1.0-SNAPSHOT'
 
     repositories {
-    }
-    repositories {
         mavenLocal()
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         mavenCentral()
@@ -29,8 +35,11 @@ configure(allprojects) { project ->
         options.encoding = "UTF-8"
     }
 
-    ext.guavaVersion = "19.0"
-    ext.springVersion = "4.3.2.RELEASE"
-    ext.jacksonVersion = "2.8.1"
+
+
+//    ext.guavaVersion = "19.0"
+//    ext.springVersion = "4.3.2.RELEASE"
+//    ext.jacksonVersion = "2.8.1"
+//    ext.commonsLang3Version = "3.9"
 
 }

@@ -5,5 +5,5 @@ dependencies {
     compile 'ch.qos.logback:logback-classic:1.1.2'
 
     compile 'com.google.guava:guava:19.0'
-    compile 'org.apache.commons:commons-lang3:3.1'
+    compile "org.apache.commons:commons-lang3:${commonsLang3Version}"
 }

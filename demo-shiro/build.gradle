@@ -23,7 +23,7 @@ dependencies {
     compile 'com.google.guava:guava:19.0'
     compile 'org.aspectj:aspectjrt:1.8.9'
     compile 'org.aspectj:aspectjweaver:1.8.9'
-    compile 'org.apache.commons:commons-lang3:3.1'
+    compile "org.apache.commons:commons-lang3:${commonsLang3Version}"
 
     /* freemarker */
     compile group: 'org.freemarker', name: 'freemarker', version: '2.3.23'
