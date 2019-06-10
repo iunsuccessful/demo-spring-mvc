@@ -9,15 +9,15 @@ import java.util.function.Function;
 
 public class CompletableFutureDemo {
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
+            .setNameFormat("consumer-queue-thread-%d").build();
+
+    ExecutorService singleThreadExecutor = new ThreadPoolExecutor(1, 1, 60, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<Runnable>(1),namedThreadFactory,new ThreadPoolExecutor.AbortPolicy());
+
+    private void run() {
 
         List<Integer> lines = Arrays.asList(1, 2, 3);
-
-        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
-                .setNameFormat("consumer-queue-thread-%d").build();
-
-        ExecutorService singleThreadExecutor = new ThreadPoolExecutor(3, 3, 60, TimeUnit.SECONDS,
-                new ArrayBlockingQueue<Runnable>(5),namedThreadFactory,new ThreadPoolExecutor.AbortPolicy());
 
 //        CompletableFuture[] cfs = lines.stream().map(t -> CompletableFuture.supplyAsync(() -> {
 //            System.out.println("Test");
@@ -42,6 +42,18 @@ public class CompletableFutureDemo {
 
         System.out.println("END");
 
+//        singleThreadExecutor.shutdownNow();
+
     }
+
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+
+        CompletableFutureDemo completableFutureDemo = new CompletableFutureDemo();
+        completableFutureDemo.run();
+
+    }
+
+
 
 }
