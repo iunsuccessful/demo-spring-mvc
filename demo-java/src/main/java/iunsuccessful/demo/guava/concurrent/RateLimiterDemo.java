@@ -8,6 +8,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Create By LiQZ 2018/7/5
@@ -15,33 +16,39 @@ import java.util.concurrent.TimeUnit;
 public class RateLimiterDemo {
 
 
+    private static final RateLimiter rateLimiter = RateLimiter.create(20);
 
     public static void main(String[] args){
 
         //新建一个每秒限制3个的令牌桶
-        RateLimiter rateLimiter = RateLimiter.create(20.0);
+
+
+
 
         final Semaphore semp = new Semaphore(20);
 
         ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(20);
+
+        AtomicInteger atomicInteger = new AtomicInteger(1);
 
         for (int i = 0; i < 20; i++) {
             executor.execute(new Runnable() {
                 @Override
                 public void run() {
                     //获取令牌桶中一个令牌，最多等待10秒
+                    rateLimiter.setRate(atomicInteger.getAndIncrement());
 //                    rateLimiter.acquire();
-//                    if (rateLimiter.tryAcquire(1, 10, TimeUnit.SECONDS)) {
-//                        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-//                    }
-                    try {
-                        semp.acquire();
-                        System.out.println(new SimpleDateFormat("yy-MM-dd HH:mm:ss").format(new Date()));
-                        Thread.sleep(1000);
-                        semp.release();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if (rateLimiter.tryAcquire(1, 10, TimeUnit.SECONDS)) {
+                        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
                     }
+//                    try {
+//                        semp.acquire();
+//                        System.out.println(new SimpleDateFormat("yy-MM-dd HH:mm:ss").format(new Date()));
+//                        Thread.sleep(1000);
+//                        semp.release();
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
 
                 }
             });

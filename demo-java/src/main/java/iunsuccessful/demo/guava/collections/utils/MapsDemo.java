@@ -1,9 +1,6 @@
 package iunsuccessful.demo.guava.collections.utils;
 
-import com.google.common.collect.ImmutableListMultimap;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Multimaps;
+import com.google.common.collect.*;
 
 import java.util.List;
 import java.util.Map;
@@ -47,6 +44,16 @@ public class MapsDemo {
         users.add(new Users(2, "wang"));
         ImmutableListMultimap<Integer, Users> userMap = Multimaps.index(users, Users::getId);
         print(userMap);
+    }
+
+    static void immutableMap() {
+        Map<String, String> cityReplaceMap = ImmutableMap
+                .of(
+                        "local", "application-local.yml",
+                        "daily", "application-daily.yml",
+                        "pre", "application-pre.yml",
+                        "prod", "application-prod.yml"
+                );
     }
 
 

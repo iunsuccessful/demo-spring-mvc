@@ -18,8 +18,8 @@ configure(allprojects) { project ->
         }
     }
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = 13
+    targetCompatibility = 13
 
     group 'iunsuccessful.demo'
 
@@ -33,6 +33,21 @@ configure(allprojects) { project ->
 
     configure([compileJava, javadoc, compileTestJava]) {
         options.encoding = "UTF-8"
+    }
+
+    dependencies {
+        // 这样子，所有项目都依赖
+//        implementation 'com.google.guava:guava:28.2-jre'
+        // 这里，限制子项目版本
+        constraints {
+            implementation 'com.google.guava:guava:28.2-jre'
+            implementation 'commons-beanutils:commons-beanutils:1.9.3'
+            implementation 'cn.hutool:hutool-all:5.2.0'
+            implementation 'commons-codec:commons-codec:1.10'
+            implementation 'com.fasterxml.jackson.core:jackson-core:2.9.8'
+            implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+            implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.8'
+        }
     }
 
 

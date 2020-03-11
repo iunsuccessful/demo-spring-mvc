@@ -50,7 +50,7 @@ public class FutureDemo {
             public void onFailure(Throwable thrown) {
 //                battleArchNemesis(); // escaped the explosion!
             }
-        });
+        }, service);
     }
 
     /**
@@ -63,7 +63,7 @@ public class FutureDemo {
                 return String.format("%s -> BO", DO);
             }
         };
-        ListenableFuture queryFuture = Futures.transform(findDB("condition"), queryFunction);
+        ListenableFuture queryFuture = Futures.transform(findDB("condition"), queryFunction, service);
         try {
             System.out.println(queryFuture.get());
         } catch (InterruptedException e) {

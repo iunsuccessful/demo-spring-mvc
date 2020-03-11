@@ -17,4 +17,9 @@ public class IntegerDemo {
         }
     }
 
+    public static boolean batchInteger(Integer a, Integer b) {
+        int remainder = a % b;
+        return remainder == 0;
+    }
+
 }

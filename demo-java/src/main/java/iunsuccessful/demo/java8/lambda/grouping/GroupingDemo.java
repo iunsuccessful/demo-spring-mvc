@@ -7,10 +7,11 @@ import java.util.function.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.*;
 
 /**
+ *
+ *
  * Create By LiQZ 2018/10/11
  */
 public class GroupingDemo {
@@ -20,9 +21,12 @@ public class GroupingDemo {
 
 //        Map<String, List<Menu>> menuMap = menuList.stream().collect(groupingBy(Menu::getName, toList()));
         Map<String, List<Menu>> menuMap = menuList.stream().collect(groupingBy(Menu::getName, toChild()));
+        PrintUtils.print(menuMap);
+        // 有相同名称 grouping by 不会有问题， toMap 会出异常
+        Map<String, Menu> menuMap2 = menuList.stream().collect(toMap(Menu::getName, Function.identity()));
+        System.out.println(menuMap2);
 //        Map<Menu, List<Menu>> menuMap = menuList.stream().collect(groupingBy(Menu::getName, toChild()));
 
-        PrintUtils.print(menuMap);
 
     }
 

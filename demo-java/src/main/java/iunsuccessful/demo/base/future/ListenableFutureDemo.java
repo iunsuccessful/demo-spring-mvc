@@ -36,7 +36,21 @@ public class ListenableFutureDemo {
                 logger.info("{} failure!", t);
                 service.shutdown();
             }
-        });
+        }, Executors.newSingleThreadExecutor());
+
+//        Futures.addCallback(explosion, new FutureCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                logger.info("{} success!", result);
+//                service.shutdown();
+//            }
+//
+//            @Override
+//            public void onFailure(Throwable t) {
+//                logger.info("{} failure!", t);
+//                service.shutdown();
+//            }
+//        });
 
     }
 
