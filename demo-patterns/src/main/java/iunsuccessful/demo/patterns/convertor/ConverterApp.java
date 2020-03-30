@@ -21,6 +21,8 @@ public class ConverterApp {
         List<UserDTO> userDTOS = userConverter.createFromEntities(userList);
         System.out.println(userDTOS);
 
+        System.out.println(1010 * 0.01);
+
     }
 
 }

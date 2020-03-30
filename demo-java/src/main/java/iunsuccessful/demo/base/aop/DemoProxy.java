@@ -40,6 +40,8 @@ public class DemoProxy {
             }
         };
 
+//        IFoo.class.cast  => (IFoo)
+
         IFoo foo = (IFoo) Proxy.newProxyInstance(
                 IFoo.class.getClassLoader(),
                 new Class<?>[] { IFoo.class },
