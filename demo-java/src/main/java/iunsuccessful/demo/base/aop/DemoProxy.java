@@ -132,7 +132,7 @@ interface IFoo {
 
     void sayHi();
 
-    void sayHello();
+    String sayHello();
 
 }
 
@@ -144,8 +144,9 @@ class Foo implements IFoo {
     }
 
     @Override
-    public void sayHello() {
+    public String sayHello() {
         System.out.println("Hello!");
         sayHi();
+        return "Hello!";
     }
 }

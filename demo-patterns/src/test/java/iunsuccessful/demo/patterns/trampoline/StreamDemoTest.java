@@ -10,7 +10,7 @@ class StreamDemoTest {
     @org.junit.jupiter.api.Test
     void demo1() {
 
-        StreamDemo.demo1();
+//        StreamDemo.demo1();
 
     }
 }

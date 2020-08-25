@@ -6,7 +6,7 @@ package iunsuccessful.demo;
 public class Money {
 
     public static void main(String[] args) {
-        doCalculate(10_0000.0, 0.05, 22);
+        doCalculate2(5000.0, 0.03, 30);
     }
 
     public static void doCalculate(double money, double add, int year) {
@@ -22,6 +22,14 @@ public class Money {
             }
         }
         System.out.println(newMoney/10000);
+    }
+
+    public static void doCalculate2(double money, double add, int time) {
+        // 转换成月利率
+        for (int i = 0; i < time; i++) {
+            money += money * add;
+        }
+        System.out.println(money);
     }
 
 
