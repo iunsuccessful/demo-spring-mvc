@@ -22,9 +22,16 @@ public class BigDecimalDemo {
     }
 
     public static void format() {
-        DecimalFormat df = new DecimalFormat("#.##");
-        System.out.println(df.format(Double.valueOf("18260081109")));
-        System.out.println(df.format(Double.valueOf("100.2")));
+//        DecimalFormat df = new DecimalFormat("#.##");
+//        System.out.println(df.format(Double.valueOf("18260081109")));
+//        System.out.println(df.format(Double.valueOf("100.2")));
+
+        BigDecimal a = new BigDecimal(3);
+        BigDecimal b = new BigDecimal(2);
+
+        System.out.println(a.add(b).hashCode());
+        System.out.println(a.hashCode());
+
     }
 
 }

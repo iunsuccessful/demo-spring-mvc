@@ -1,5 +1,7 @@
 package iunsuccessful.demo.base.exception;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -15,8 +17,9 @@ public class ExceptionDemo {
         try {
             test();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(toString_02(e));
+//            e.printStackTrace();
+//            System.out.println(toString_02(e));
+            System.out.println(ExceptionUtils.getStackTrace(e));
         }
 
     }

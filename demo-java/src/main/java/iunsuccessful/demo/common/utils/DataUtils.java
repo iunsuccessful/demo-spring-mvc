@@ -40,6 +40,16 @@ public class DataUtils {
         return list;
     }
 
+    public static List<Integer> getRandomIntegerList(int length) {
+        Random random = new Random();
+        List<Integer> list = new ArrayList<>(length);
+        for (int i = 0; i < length; i++ ) {
+            int number = random.nextInt(10000) + 1;
+            list.add(number);
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         Date date = new Date(1460345907000L);
 //        Instant.now(Clock.)

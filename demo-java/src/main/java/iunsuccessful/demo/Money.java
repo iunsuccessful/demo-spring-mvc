@@ -6,13 +6,13 @@ package iunsuccessful.demo;
 public class Money {
 
     public static void main(String[] args) {
-        doCalculate2(5000.0, 0.03, 30);
+        doCalculate2(20000.0, 0.025, 200);
     }
 
     public static void doCalculate(double money, double add, int year) {
         // 转换成月利率
         add = add / 12;
-        double newMoney = 60000;
+        double newMoney = 10_0000;
         for (int i = 1; i <= year; i++) {
             for (int j = 1; j <= 12; j++) {
                 // 加上这个月存的钱
@@ -21,7 +21,7 @@ public class Money {
                 newMoney += newMoney * add;
             }
         }
-        System.out.println(newMoney/10000);
+        System.out.println(newMoney);
     }
 
     public static void doCalculate2(double money, double add, int time) {
