@@ -21,6 +21,8 @@ public class OrderMapDemo {
         points.add(new Point(4, 4));
         Map<Integer, List<Point>> pointMap = points.stream().collect(Collectors.groupingBy(Point::getX, LinkedHashMap::new, toList()));
         PrintUtils.print(pointMap);
+
+        Map<Integer, List<Point>> pointMap1 = points.stream().collect(Collectors.groupingBy(Point::getX));
     }
 
 }

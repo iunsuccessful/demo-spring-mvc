@@ -20,6 +20,9 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework:spring-tx:5.2.4.RELEASE'
+    implementation 'aspectj:aspectjrt:1.5.4'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
 //    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.2'
     implementation 'org.slf4j:slf4j-api:1.7.7'
     implementation 'ch.qos.logback:logback-core:1.1.2'
@@ -31,6 +34,7 @@ dependencies {
     implementation 'io.github.openfeign.form:feign-form:3.8.0'
     implementation 'io.github.openfeign.form:feign-form-spring:3.8.0'
     implementation group: 'cn.hutool', name: 'hutool-all'
+    implementation 'io.github.resilience4j:resilience4j-circuitbreaker:1.7.1'
     runtimeOnly 'org.projectlombok:lombok'
 //    runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'

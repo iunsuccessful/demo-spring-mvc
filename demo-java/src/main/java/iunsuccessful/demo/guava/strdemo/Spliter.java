@@ -1,4 +1,4 @@
-package iunsuccessful.demo.guava.demo;
+package iunsuccessful.demo.guava.strdemo;
 
 import com.google.common.base.Splitter;
 

@@ -15,6 +15,10 @@ dependencies {
     implementation 'org.apache.httpcomponents:httpclient:4.5.12'
     implementation group: 'cn.hutool', name: 'hutool-all'
     implementation 'com.squareup.okhttp3:okhttp:3.14.7'
+    implementation 'io.vavr:vavr:1.0.0-alpha-4'
+
+    // implementation fileTree(dir: 'lib', include: ['*.jar'])
+    implementation files('src/main/resources/lib/kuaishou-merchant-open-sdk-29.jar')
 //    compile 'net.bytebuddy:byte-buddy:1.10.7'
 //    compile 'net.bytebuddy:byte-buddy-agent:1.10.7'
 

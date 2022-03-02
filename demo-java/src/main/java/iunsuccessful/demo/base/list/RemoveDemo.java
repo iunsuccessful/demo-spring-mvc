@@ -6,6 +6,7 @@ import iunsuccessful.demo.common.utils.PrintUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * list<integer>  remove 测试
@@ -30,6 +31,14 @@ public class RemoveDemo {
         allFloors.add(11);
         PrintUtils.print(allFloors);
         allFloors.remove(new Integer(1));
+        PrintUtils.print(allFloors);
+
+        allFloors.removeIf(new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer integer) {
+                return integer == 2;
+            }
+        });
         PrintUtils.print(allFloors);
     }
 

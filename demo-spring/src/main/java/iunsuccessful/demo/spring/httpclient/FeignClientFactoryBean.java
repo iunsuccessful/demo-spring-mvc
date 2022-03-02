@@ -1,15 +1,13 @@
 package iunsuccessful.demo.spring.httpclient;
 
 import feign.*;
-import feign.jackson.JacksonDecoder;
-import feign.jackson.JacksonEncoder;
+import feign.codec.Decoder;
+import feign.codec.Encoder;
 import feign.slf4j.Slf4jLogger;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-
-import java.util.Objects;
 
 /**
  * 依韵 2020/3/27
@@ -26,17 +24,19 @@ public class FeignClientFactoryBean implements FactoryBean<Object>, ApplicationC
 
     @Override
     public Object getObject() throws Exception {
+
+        Decoder decoder = applicationContext.getBean(Decoder.class);
+        Encoder encoder = applicationContext.getBean(Encoder.class);
+
         Feign.Builder builder = Feign.builder()
             .retryer(Retryer.NEVER_RETRY)
             .logger(new Slf4jLogger())
             .logLevel(Logger.Level.FULL)
-            .encoder(new JacksonEncoder())
-            .decoder(new JacksonDecoder());
-        // TODO 验证一下，这个 client 要是不存在就报错了。
+            .encoder(encoder)
+            .decoder(decoder);
+
         Client client = applicationContext.getBean(Client.class);
-        if (Objects.nonNull(client)) {
-            builder.client(client);
-        }
+        builder.client(client);
         // 这里还有 balance 的处理
         return builder.target(new Target.HardCodedTarget<>(this.type, this.name, this.url));
     }
