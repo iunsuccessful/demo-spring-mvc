@@ -15,6 +15,11 @@ public class BoolDemo {
 
         }
 
+        // 顺序
+        int num1 = 10;
+        int num2 = 13;
+        System.out.println(num1%5 == 0 && num2%6== 0);
+
     }
 
     private static boolean test1() {

@@ -21,10 +21,6 @@ public class RateLimiterDemo {
     public static void main(String[] args){
 
         //新建一个每秒限制3个的令牌桶
-
-
-
-
         final Semaphore semp = new Semaphore(20);
 
         ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(20);

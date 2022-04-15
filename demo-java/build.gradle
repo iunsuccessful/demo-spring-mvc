@@ -16,6 +16,7 @@ dependencies {
     implementation group: 'cn.hutool', name: 'hutool-all'
     implementation 'com.squareup.okhttp3:okhttp:3.14.7'
     implementation 'io.vavr:vavr:1.0.0-alpha-4'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.4'
 
     // implementation fileTree(dir: 'lib', include: ['*.jar'])
     implementation files('src/main/resources/lib/kuaishou-merchant-open-sdk-29.jar')

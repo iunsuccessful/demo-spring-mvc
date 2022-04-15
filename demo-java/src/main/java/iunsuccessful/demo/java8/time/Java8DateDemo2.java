@@ -65,6 +65,11 @@ public class Java8DateDemo2 {
         LocalTime zero = LocalTime.of(0, 0, 0, 0); // 00:00
         LocalTime mid = LocalTime.parse("12:00:00"); // 12:00
         System.out.println(mid);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime localDateTime = LocalDateTime.parse("2022-04-06 10:00:00", formatter);
+        System.out.println(localDateTime);
+
     }
 
 }

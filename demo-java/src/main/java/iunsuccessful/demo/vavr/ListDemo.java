@@ -5,6 +5,7 @@ import io.vavr.Tuple2;
 import io.vavr.collection.List;
 import io.vavr.collection.Map;
 import iunsuccessful.demo.common.domain.Point;
+import iunsuccessful.demo.common.utils.DataUtils;
 
 
 /**
@@ -35,9 +36,13 @@ public class ListDemo {
         Map<Integer, List<Integer>> abcde = points
                 .groupBy(Point::getX)
                 .bimap(x -> x, points1 -> points1.map(Point::getY).distinct());
+
+
         Map<Integer, List<Integer>> abcdeg = points
                 .groupBy(Point::getX)
                 .mapValues(points13 -> points13.map(Point::getY).distinct());
+
+
         System.out.println(abcd);
         System.out.println(abcde);
         System.out.println(abcdeg);

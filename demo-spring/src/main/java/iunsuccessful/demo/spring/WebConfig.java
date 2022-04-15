@@ -5,6 +5,8 @@ import iunsuccessful.demo.spring.httpclient.FeignHttpClientProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 
 /**
@@ -12,6 +14,7 @@ import org.springframework.context.annotation.Import;
  */
 @EnableConfigurationProperties({FeignHttpClientProperties.class})
 @Import(FeignClientsRegister.class)
+@EnableAspectJAutoProxy
 @SpringBootApplication
 public class WebConfig {
 

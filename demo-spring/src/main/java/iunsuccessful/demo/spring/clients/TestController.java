@@ -23,7 +23,7 @@ public class TestController {
     @Autowired
     private NutsClient nutsClient;
 
-    @RequestMapping("index")
+    @RequestMapping("test")
     public Map<String, String> list() {
         return testClient.list("github");
     }

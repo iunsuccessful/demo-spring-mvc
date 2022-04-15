@@ -5,14 +5,13 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.*;
-import java.util.function.Function;
 
 public class CompletableFutureDemo {
 
     ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
             .setNameFormat("consumer-queue-thread-%d").build();
 
-    ExecutorService singleThreadExecutor = new ThreadPoolExecutor(1, 1, 60, TimeUnit.SECONDS,
+    ExecutorService singleThreadExecutor = new ThreadPoolExecutor(5, 10, 60, TimeUnit.SECONDS,
             new ArrayBlockingQueue<Runnable>(1),namedThreadFactory,new ThreadPoolExecutor.AbortPolicy());
 
     private void run() {
@@ -25,11 +24,23 @@ public class CompletableFutureDemo {
 //        }, singleThreadExecutor)).toArray(CompletableFuture[]::new);
 
         CompletableFuture cf = CompletableFuture.supplyAsync(() -> {
-            System.out.println("Test");
+            System.out.println(Thread.currentThread().getName());
+            System.out.println("###1");
             return 0;
         }, singleThreadExecutor);
 
-        cf.thenApplyAsync(v -> v + "world").join();
+        CompletableFuture.runAsync(() -> {
+            System.out.println(Thread.currentThread().getName());
+            System.out.println("###2");
+        }, singleThreadExecutor);
+
+//        // singleThreadExecutor.submit 修改不了
+//        ForkJoinPool forkJoinPool = new ForkJoinPool(1);
+//        forkJoinPool.submit(() -> {
+//            lines.parallelStream().forEach(integer -> System.out.printf("ps %s\n", Thread.currentThread().getName()));
+//        });
+//
+//        cf.thenApplyAsync(v -> v + "world").join();
 
 //        System.out.println(singleThreadExecutor.);
 
@@ -51,6 +62,7 @@ public class CompletableFutureDemo {
 
         CompletableFutureDemo completableFutureDemo = new CompletableFutureDemo();
         completableFutureDemo.run();
+        Thread.sleep(1000);
 
     }
 

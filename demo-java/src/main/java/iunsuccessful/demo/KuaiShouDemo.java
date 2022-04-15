@@ -24,6 +24,7 @@ public class KuaiShouDemo {
 
         KsMerchantResponse response = tokenKsMerchantClient.execute(deliverRequest);
         System.out.println(response);
+
     }
 
 }
