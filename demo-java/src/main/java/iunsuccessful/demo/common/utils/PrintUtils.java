@@ -24,7 +24,7 @@ public class PrintUtils {
 
     public static void printBag(Bag bag) {
         System.out.println("------------- bag ------------");
-        bag.uniqueSet().forEach(o -> System.out.printf("%s %s", o, bag.getCount(o)));
+        bag.uniqueSet().forEach(o -> System.out.printf("%s %s\n", o, bag.getCount(o)));
     }
 
     public static <T> void print(Collection<T> collections) {

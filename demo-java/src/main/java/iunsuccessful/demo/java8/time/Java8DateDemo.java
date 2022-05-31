@@ -4,6 +4,7 @@ import java.time.Clock;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.MonthDay;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 /**
@@ -16,15 +17,16 @@ public class Java8DateDemo {
     private static final LocalTime now = LocalTime.now();
 
     public static void main(String[] args) {
-        getToday();
-        getYearMonthDay();
-        getSpecialDate();
-        equalsDays();
-        birthDay();
-        getCurrentTime();
-        addHours();
-        oneWeekAgo();
-        clock();
+//        getToday();
+//        getYearMonthDay();
+//        getSpecialDate();
+//        equalsDays();
+//        birthDay();
+//        getCurrentTime();
+//        addHours();
+//        oneWeekAgo();
+//        clock();
+        getYesterday();
     }
 
     /**
@@ -117,6 +119,13 @@ public class Java8DateDemo {
         Clock.systemDefaultZone();
         System.out.println("Clock: " + clock.getZone());
 
+    }
+
+    private static void getYesterday() {
+//        LocalDate date = LocalDate.now();
+//        date = date.minusDays(1L);
+//        System.out.println(date.format(DateTimeFormatter.ISO_LOCAL_DATE));
+        System.out.println(LocalDate.now().minusDays(1L).format(DateTimeFormatter.ISO_LOCAL_DATE));
     }
 
 

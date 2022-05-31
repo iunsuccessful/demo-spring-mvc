@@ -3,8 +3,7 @@ package iunsuccessful.demo.java8.time;
 import iunsuccessful.demo.common.utils.PrintUtils;
 
 import java.time.*;
-import java.time.temporal.IsoFields;
-import java.time.temporal.TemporalField;
+import java.util.Date;
 
 /**
  * @author LiQZ on 2016/10/17.
@@ -50,6 +49,10 @@ public class Demo {
         // 获取当前日期(不包括时间)
         LocalDate today = LocalDate.now(); // 2017-10-27
         System.out.println(today);
+
+        Instant instant = LocalDateTime.now().minusDays(30).toInstant(ZoneOffset.of("+8"));
+        System.out.println(instant.toEpochMilli());
+        System.out.println(new Date(instant.toEpochMilli()));
 
 
     }

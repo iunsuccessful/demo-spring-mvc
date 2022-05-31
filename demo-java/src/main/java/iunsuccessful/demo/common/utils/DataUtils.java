@@ -1,5 +1,8 @@
 package iunsuccessful.demo.common.utils;
 
+import iunsuccessful.demo.common.domain.Fighter;
+import iunsuccessful.demo.common.domain.Point;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -46,6 +49,26 @@ public class DataUtils {
         for (int i = 0; i < length; i++ ) {
             int number = random.nextInt(10000) + 1;
             list.add(number);
+        }
+        return list;
+    }
+
+    public static List<Point> getRandomPoints(int length) {
+        Random random = new Random();
+        List<Point> list = new ArrayList<>(length);
+        for (int i = 0; i < length; i++ ) {
+            int number = random.nextInt(10000) + 1;
+            list.add(new Point(number, number));
+        }
+        return list;
+    }
+
+    public static List<Fighter> getRandomFighters(int length) {
+        Random random = new Random();
+        List<Fighter> list = new ArrayList<>(length);
+        for (int i = 0; i < length; i++ ) {
+            String a = getRandomString(random.nextInt(10) + 1);
+            list.add(new Fighter(a, new Date()));
         }
         return list;
     }

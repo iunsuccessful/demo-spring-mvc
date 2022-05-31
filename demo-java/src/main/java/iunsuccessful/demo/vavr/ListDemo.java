@@ -5,7 +5,6 @@ import io.vavr.Tuple2;
 import io.vavr.collection.List;
 import io.vavr.collection.Map;
 import iunsuccessful.demo.common.domain.Point;
-import iunsuccessful.demo.common.utils.DataUtils;
 
 
 /**
@@ -49,6 +48,9 @@ public class ListDemo {
         // bimap 与这个的底层实现是一样的 Tuple.of(keyMapper.apply(entry._1), valueMapper.apply(entry._2))
         Map<Integer, List<Integer>> abcdef = abc.map((Function2<Integer, List<Point>, Tuple2<Integer, List<Integer>>>) (integer, points12) -> new Tuple2<>(integer, points12.map(Point::getY).distinct()));
         System.out.println(abcdef);
+
+        // group reduce 的 java 8 就可以实现
+        // orderDTO.getDetails().stream().collect(Collectors.groupingBy(OrderDetailDTO::getProductGuid, Collectors.summingInt(OrderDetailDTO::getNum)));
 
     }
 

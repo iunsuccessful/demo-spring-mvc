@@ -2,7 +2,9 @@ package iunsuccessful.demo.java8.time;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Date;
 
 /**
  * @author LiQZ on 2016/5/24.
@@ -13,7 +15,12 @@ public class Java8DateDemo2 {
 //        secondToTime();
 //        formatTime();
 //        dayOfMonth();
-        localTimeDemo();
+        // localTimeDemo();
+        Date a = new Date();
+        a.setTime(1464019200l * 1000);
+        Date b = new Date();
+        int result = calculateDaysBetweenDates(a, b);
+        System.out.println(result);
     }
 
     private static void secondToTime() {
@@ -68,8 +75,18 @@ public class Java8DateDemo2 {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime localDateTime = LocalDateTime.parse("2022-04-06 10:00:00", formatter);
+
         System.out.println(localDateTime);
 
+    }
+
+    /**
+     * 计算日期之前相差的天数
+     */
+    private static Integer calculateDaysBetweenDates(Date a, Date b) {
+        // Get the number of days between the two dates.
+        long days = ChronoUnit.DAYS.between(a.toInstant(), b.toInstant());
+        return (int) days;
     }
 
 }

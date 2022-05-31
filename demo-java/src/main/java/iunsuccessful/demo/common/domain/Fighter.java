@@ -13,6 +13,14 @@ public class Fighter {
 
     private Date signDate;
 
+    public Fighter() {
+    }
+
+    public Fighter(String name, Date signDate) {
+        this.name = name;
+        this.signDate = signDate;
+    }
+
     public String getName() {
         return name;
     }
@@ -27,5 +35,14 @@ public class Fighter {
 
     public void setSignDate(Date signDate) {
         this.signDate = signDate;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Fighter{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", signDate=").append(signDate);
+        sb.append('}');
+        return sb.toString();
     }
 }
